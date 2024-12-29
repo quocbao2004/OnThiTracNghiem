@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Feedback</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h2>Question: {{ question_text }}</h2>
+      <!-- Hiển thị câu hỏi -->
+      {% if correct %}
+      <h1>Correct!</h1>
+      {% else %}
+      <h1>Wrong Answer!</h1>
+      <p>The correct answer is: <strong>{{ correct_answer }}</strong></p>
+      {% endif %}
+      <a href="/quiz/{{ next_question }}" class="next-question"
+        >Next Question</a
+      >
+    </div>
+  </body>
+</html>

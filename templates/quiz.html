@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Question {{ question_id + 1 }}</h1>
+      <p>{{ question['question'] }}</p>
+      <form method="POST" action="/quiz/{{ question_id }}">
+        {% for option in question['options'] %}
+        <button type="submit" name="option" value="{{ option }}">
+          {{ option }}
+        </button>
+        {% endfor %}
+      </form>
+    </div>
+  </body>
+</html>
